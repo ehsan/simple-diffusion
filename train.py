@@ -314,7 +314,9 @@ class Evaluator:
     "--num_batches_per_epoch", default=100, help="Number of batches per epoch"
 )
 @click.option("--lr", default=1e-4, help="Learning rate for training")
-@click.option("--ckpt_path", default="model.pth", help="Path to save the model checkpoint")
+@click.option(
+    "--ckpt_path", default="model.pth", help="Path to save the model checkpoint"
+)
 def main(random_seed, num_epochs, batch_size, num_batches_per_epoch, lr, ckpt_path):
     torch.manual_seed(random_seed)
     np.random.seed(random_seed)
