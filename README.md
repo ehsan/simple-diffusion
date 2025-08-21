@@ -114,6 +114,13 @@ class ResidualNoisePredictor(nn.Module):
 
 Next we try data augmentation through 3 types of transforms on the dataset (rotation, scaling and translation), unfortunately this kind of data augmentation hurts the results very badly (both visually and also ~31.19% regression on the metrics).
 
+## Training for longer
+We also show that the simple `NoisePredictor` network, if trained for longer (e.g. 5000 epochs) is still capable of learning the two moons distribution quite well.  We ran an ablaion against training the `ResidualNoisePredictor` network for the same number of epochs, and the visual results are very similar (and from the metrics perspective, the results from `NoisePredictor` actually beat the results from `ResidualNoisePredictor`).  In other words, adding residual connections helps make the training more compute efficient, but probably given the relatively simple nature of the dataset, a much simpler network is still capable of learning it very well.
+
+You can see the visual results from `NoisePredictor` and `ResidualNoisePredictor` respecitvely below, both trained for 5000 epochs.
+<img width="993" height="528" alt="image" src="https://github.com/user-attachments/assets/3c27a175-e443-483d-8f35-213991007044" />
+<img width="1200" height="600" alt="image" src="https://github.com/user-attachments/assets/00d56817-1e30-4cb8-860b-6aa1bad7588c" />
+
 ## Ideas for future improvements
 Besides the ideas we tried in this small project, there are many other potential ideas for improving on top of our baseline that we can try in the future, here are some examples:
 * Trying different learning rates, or different learning rate schedules (e.g. cosine annealing schedule)

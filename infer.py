@@ -37,7 +37,7 @@ class Infer:
 
 
 @click.command()
-@click.option("--ckpt_path", required=True, help="Path to the trained model checkpoint")
+@click.option("--ckpt_path", default="model.pth", help="Path to the trained model checkpoint")
 @click.option("--num_samples", default=1000, help="Number of samples to generate")
 @click.option("--num_inference_steps", default=50, help="Number of inference steps for DDIM sampling")
 @click.option("--seed", default=None, type=int, help="Random seed for reproducible generation")
